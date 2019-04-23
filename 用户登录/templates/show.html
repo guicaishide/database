@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .book{
+            width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+{% for book in book_list %}
+    <div class="book">
+        <h4>书名:{{ book.title }}</h4>
+        <span>作者:{{ book.authors }}</span>
+        <span>出版日期:{{ book.publishDate }}</span>
+        <span>价格:{{ book.price }}</span>
+        <span>页数:{{ book.pageNum }}</span>
+        <span>出版社:{{ book.publish }}</span>
+    </div>
+{% endfor %}
+</body>
+</html>
