@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        .forma{
+            width: 300px;
+            margin: 0 auto;
+            margin-top: 80px;
+        }
+        .formb{
+            float: right;
+        }
+        .formc{
+            float: left;
+        }
+        .headers{
+            margin-bottom: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="forma">
+        <div class="headers">
+         <h1>WeChat</h1>
+         <h2>公众号辅助管理系统</h2>
+        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            {% if register %}
+          <div class="form-group">
+            <label for="exampleInputEmail1">用户名</label>
+            <input name='username' type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入用户名">
+          </div>
+          <div>
+            <label for="exampleInputEmail1">邮箱</label>
+            <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入邮箱">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">手机号</label>
+            <input name='mobile' type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入手机号">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">密码</label>
+            <input name ='password'type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码">
+          </div>
+            <div class="form-group">
+            <p class="help-block">{{ tips }}</p>
+          </div>
+          <button type="submit"  class="btn btn-default formc">提交</button>
+
+            {% endif %}
+        {% if login %}
+           <div class="form-group">
+            <label for="exampleInputEmail1">用户名/邮箱/手机号</label>
+            <input name='username' type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入用户名">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">密码</label>
+            <input name ="password"type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码">
+          </div>
+          <div class="form-group">
+            <p class="help-block">{{ tips }}</p>
+          </div>
+          <button type="submit"  class="btn btn-default formc">登录</button>
+            {% endif %}
+        </form>
+         <a href="{{ url }}"class="btn btn-default formb">{{ button_right }}</a>
+    </div>
+</body>
+</html>
